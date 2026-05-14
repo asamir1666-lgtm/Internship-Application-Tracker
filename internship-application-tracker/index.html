@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internship Application Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section id="authPage" class="auth-page">
+    <div class="auth-card">
+      <p class="eyebrow">Internship Tracker</p>
+      <h1 id="authTitle">Login</h1>
+      <p class="subtitle">Create an account or log in to manage your internship applications.</p>
+
+      <form id="authForm">
+        <label id="nameLabel" class="hidden">
+          Full Name
+          <input id="fullName" type="text" placeholder="Example: Aly Samir" />
+        </label>
+
+        <label>
+          Email
+          <input id="authEmail" type="email" placeholder="example@email.com" required />
+        </label>
+
+        <label>
+          Password
+          <input id="authPassword" type="password" placeholder="Enter password" required />
+        </label>
+
+        <button type="submit" class="primary-btn full-width" id="authSubmitBtn">Login</button>
+      </form>
+
+      <p id="authMessage" class="auth-message"></p>
+
+      <button id="switchAuthBtn" class="link-btn">
+        Don’t have an account? Create one
+      </button>
+    </div>
+  </section>
+
+  <section id="appPage" class="hidden">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Productivity Dashboard</p>
+        <h1>Internship Application Tracker</h1>
+        <p class="subtitle">Organize applications, deadlines, statuses, notes, and follow-ups in one place.</p>
+        <p id="welcomeUser" class="welcome-user"></p>
+      </div>
+      <div class="header-actions">
+        <button id="logoutBtn" class="secondary-btn">Logout</button>
+        <button id="clearAllBtn" class="danger-btn">Clear All</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="stats-grid">
+        <article class="stat-card">
+          <span id="totalCount">0</span>
+          <p>Total Applications</p>
+        </article>
+        <article class="stat-card">
+          <span id="appliedCount">0</span>
+          <p>Applied</p>
+        </article>
+        <article class="stat-card">
+          <span id="interviewCount">0</span>
+          <p>Interviews</p>
+        </article>
+        <article class="stat-card">
+          <span id="deadlineCount">0</span>
+          <p>Upcoming Deadlines</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <h2>Add / Edit Application</h2>
+          <p>Your applications are saved to your logged-in account using browser storage.</p>
+        </div>
+
+        <form id="applicationForm" class="form-grid">
+          <input type="hidden" id="editId" />
+
+          <label>
+            Company Name
+            <input id="company" type="text" placeholder="Example: Microsoft" required />
+          </label>
+
+          <label>
+            Position
+            <input id="position" type="text" placeholder="Example: Software Developer Intern" required />
+          </label>
+
+          <label>
+            Status
+            <select id="status" required>
+              <option value="Saved">Saved</option>
+              <option value="Applied">Applied</option>
+              <option value="Interview">Interview</option>
+              <option value="Offer">Offer</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </label>
+
+          <label>
+            Deadline
+            <input id="deadline" type="date" required />
+          </label>
+
+          <label class="full">
+            Notes / Follow-up
+            <textarea id="notes" placeholder="Example: Follow up with recruiter next week."></textarea>
+          </label>
+
+          <div class="form-actions full">
+            <button type="submit" class="primary-btn" id="submitBtn">Add Application</button>
+            <button type="button" class="secondary-btn" id="cancelEditBtn">Cancel Edit</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="toolbar">
+          <div class="section-title">
+            <h2>Applications</h2>
+            <p>Search, filter, update, and manage your internship pipeline.</p>
+          </div>
+
+          <div class="filters">
+            <input id="searchInput" type="text" placeholder="Search company or position..." />
+            <select id="filterStatus">
+              <option value="All">All Statuses</option>
+              <option value="Saved">Saved</option>
+              <option value="Applied">Applied</option>
+              <option value="Interview">Interview</option>
+              <option value="Offer">Offer</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <h3>No applications yet</h3>
+          <p>Add your first internship application above.</p>
+        </div>
+
+        <div id="applicationsList" class="applications-list"></div>
+      </section>
+    </main>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
